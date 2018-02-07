@@ -1,0 +1,196 @@
+/* navbar */
+
+.navbar-nav > li > a, .navbar-brand {
+  padding-top:7px !important;
+  padding-bottom: 3px !important;
+  height: 35px;
+}
+.navbar {
+  min-height:35px !important;
+  box-shadow: 0 0 1px 1px #8ec266;
+}
+
+.navbar-collapse, .navbar-fixed-top {
+  color: #FFFFFF;
+  background-color: #8ec266;
+  border: 0;
+}
+
+.navbar-fixed-top .container,
+.navbar-fixed-top .container-fluid{
+  color: #FFFFFF;
+  background-color: #8ec266;
+  border-color: #8ec266;
+  /*max-height: 35px;*/
+}
+
+.navbar-collapse .navbar-nav > .open > a,
+.navbar-collapse .navbar-nav > .open > a:hover,
+.navbar-collapse .navbar-nav > .open > a:focus {
+  color: #000000;
+  background-color: #4ca44c;
+}
+
+/* Title */
+.navbar-collapse .navbar-brand
+{
+  color: #000000;
+}
+.navbar-collapse .navbar-brand:hover,
+.navbar-collapse .navbar-brand:focus {
+  color: #000000 !important;
+}
+/* Link */
+.navbar-collapse .navbar-nav > li > a {
+  color: #ffffff;
+}
+.navbar-collapse .navbar-nav > li > a:hover,
+.navbar-collapse .navbar-nav > li > a:focus {
+  color: #000000;
+  background-color: #76bf6d;
+}
+.navbar-collapse .navbar-nav > .active > a,
+.navbar-collapse .navbar-nav > .active > a:hover,
+.navbar-collapse .navbar-nav > .active > a:focus{
+  color: #000000;
+  background-color: #4ca44c;
+  /*background-image: -webkit-linear-gradient(#8ec266, #4ca44c, #8ec266);*/
+  background-image: -webkit-linear-gradient(#4ca44c, #4ca44c);
+  background-image: linear-gradient(to top, #4ca44c, #4ca44c);
+}
+
+.navbar-collapse .navbar-nav > li.active{
+  color: #000000 !important;
+  background-color: #4ca44c !important;
+}
+
+.navbar-collapse .navbar-nav > .open > a,
+.navbar-collapse .navbar-nav > .open > a:hover,
+.navbar-collapse .navbar-nav > .open > a:focus {
+  color: #000000 !important;
+  background-color: #4ca44c !important;
+}
+/* Caret */
+
+.navbar-default .navbar-nav > .dropdown > a .caret {
+  border-top-color: #76bf6d;
+  border-bottom-color: #76bf6d;
+}
+.navbar-default .navbar-nav > .dropdown > a:hover .caret,
+.navbar-default .navbar-nav > .dropdown > a:focus .caret {
+  border-top-color: #4ca44c;
+  border-bottom-color: #4ca44c;
+}
+.navbar-default .navbar-nav > .open > a .caret,
+.navbar-default .navbar-nav > .open > a:hover .caret,
+.navbar-default .navbar-nav > .open > a:focus .caret {
+  border-top-color: #4ca44c;
+  border-bottom-color: #4ca44c;
+}
+
+/* Mobile version */
+
+.navbar-default .navbar-toggle {
+  border-color: #76bf6d;
+}
+.navbar-default .navbar-toggle:hover,
+.navbar-default .navbar-toggle:focus {
+  background-color: #76bf6d;
+}
+.navbar-default .navbar-toggle .icon-bar {
+  background-color: #4ca44c;
+}
+@media (max-width: 767px) {
+  .navbar-default .navbar-nav .open .dropdown-menu > li > a {
+    color: #777;
+  }
+  .navbar-default .navbar-nav .open .dropdown-menu > li > a:hover,
+  .navbar-default .navbar-nav .open .dropdown-menu > li > a:focus {
+    color: #333;
+  }
+}
+
+/* pagination */
+
+.pageSizeMenu,
+.pagination-detailReport{
+  margin: 5px auto 0;
+}
+
+.pagination-detailReport > .active > a{
+  color: #000000;
+  background-color: #8ec266;
+  /*background-image: -webkit-linear-gradient(#8ec266, #4ca44c, #8ec266);*/
+  background-image: -webkit-linear-gradient(#8ec266, #8ec266);
+  background-image: linear-gradient(to top, #8ec266, #8ec266);
+  border-color: #ddd;
+}
+
+.pagination-detailReport > .active > a:hover,
+.pagination-detailReport > .active > a:focus
+{
+  color: #000000;
+  border-color: #ddd;
+}
+
+.pagination-detailReport > li > a:hover,
+.pagination-detailReport > li > span:hover,
+.pagination-detailReport > li > a:focus,
+.pagination-detailReport > li > span:focus {
+  color: #000000;
+  background-color: #dfdfdf;
+  border-color: #ddd;
+  cursor: pointer;
+}
+
+.pagination-detailReport > li > a,
+.pagination-detailReport > li > span {
+  color: #000000;
+}
+
+.pageSizeMenu>button{
+  background-color: #eeeeee;
+}
+
+.pageSizeMenu .badge{
+  background-color:  #8ec266;
+}
+
+
+/* footer */
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+body {
+  /* Margin bottom by footer height */
+  margin-bottom: 30px;
+}
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  padding-top: 6px;
+  /* Set the fixed height of the footer here */
+  height: 30px;
+  background-color: #8ec266;
+  box-shadow: 0 0 1px 1px #8ec266;
+}
+
+
+p.text-footer{
+  margin: 0px !important;
+}
+
+
+
+#Content {
+  padding-top: 45px;
+}
+@media (max-width: 770px) {
+  #Content {
+    padding-top: 75px;
+  }
+}

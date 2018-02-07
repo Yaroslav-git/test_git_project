@@ -1,0 +1,212 @@
+
+.fixed-panel {
+    padding: 0px !important;
+}
+
+.reportTableContainer {
+    height: 80vh;
+    overflow-y: scroll;
+    overflow-x: scroll;
+}
+
+.chartContainer{
+    /*height: 45vh;*/
+    overflow-x: scroll;
+    overflow-y: hidden;
+ }
+
+.chartContainer-dbl{
+    /*height: 75vh;*/
+}
+
+.chartsRow {
+    height: 75vh;
+    overflow-y: scroll;
+    /*overflow-x: scroll;*/
+}
+
+.summaryStatisticsContent .panel,
+.DetailReportContent .panel {
+    margin-bottom: 0 !important;
+}
+
+.DetailReportContent{
+    margin-top: 5px;
+}
+
+.row{
+    margin-bottom: 5px;
+}
+
+.row.projectFilter {
+    margin-bottom: 1px;
+}
+
+.input-group input.datetimepicker{
+    max-width: 150px;
+    min-width: 110px;
+    padding-left: 5px;
+    padding-right: 4px;
+}
+
+.input-group-sm>.resTypeSelect{
+    padding-left: 3px;
+    padding-right: 3px;
+    max-width: 110px;
+    min-width: 85px;
+}
+
+
+span.timePeriodLabel{
+    max-width: 60px;
+    min-width: 60px;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+span.projectListLabel,
+span.resTypeLabel{
+    max-width: 75px;
+    min-width: 75px;
+    padding-left: 2px !important;
+    padding-right: 2px !important;
+}
+
+span.SummaryTypeLabel{
+    max-width: 190px;
+    min-width: 190px;
+    padding-left: 2px;
+    padding-right: 2px;
+}
+
+.label-infotell{
+    background-color: #8ec266;
+}
+
+.SummaryTypeSelect{
+    max-width: 170px;
+    min-width: 150px;
+    padding-left: 3px;
+    padding-right: 3px;
+}
+
+.projectSelectorFilter,
+.projectFilterGroup{
+    max-width: 300px;
+    min-width: 150px;
+}
+
+#projectSelector{
+    min-width: 150px;
+    padding-left: 2px;
+    padding-right: 2px;
+}
+
+#splittingPeriod{
+    min-width: 80px;
+    padding-left: 4px;
+    padding-right: 4px;
+}
+
+.notificationMessage{
+    margin-top: 30vh;
+}
+.notificationMessage div.alert{
+    text-align: center;
+}
+
+.DetailReportContent .paginationHolder{
+    text-align: right;
+}
+
+.DetailReportContent .pageSizeHolder{
+    text-align: left;
+}
+
+.input-group>.input-group-btn>.filterBtn,
+.input-group>.input-group-btn>.clearFilterBtn{
+    padding: 2px;
+    min-width: 25px;
+}
+
+
+.filterInput{
+    background-color: #f5f5f5;
+}
+
+.chartDiv>div,
+.chartDiv>div>div{
+    margin: 0px auto;
+}
+.chartContainer>div.chartHeader{
+    margin: 5px auto;
+}
+
+.currentStatChart>table,
+.currentStatChart>div{
+    margin: 0px auto !important;
+}
+
+.viewToggle{
+    text-align: center;
+}
+
+.chartContainer>div.chartHeader{
+    width: 0px;
+}
+
+div.chartHeader>span{
+    background-color: #8ec266;
+    display: inline-block;
+    padding: 3px 7px;
+    /*margin-top: 5px;*/
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 1;
+    color: #fff;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: baseline;
+    border-radius: .25em;
+    position: relative;
+    transform: translate(-50%, 0%);
+}
+
+
+.projectPropertiesHeader{
+    text-align: center;
+}
+
+span.projectPropertyLabel{
+    /*max-width: 220px;*/
+    min-width: 220px;
+    padding-left: 5px;
+    padding-right: 5px;
+    text-align: left;
+}
+
+.saveButtonContainer{
+    min-width: 115px;
+}
+
+.input-group-addon.saveButtonContainer {
+    background-color: #ccc;
+}
+
+.form-control[disabled]{
+    background-color: white;
+}
+
+.saveButtonContainer .btn{
+    width: 100%;
+    margin: 0px;
+}
+
+.glyphicon.iconMiddleSize{
+    font-size: 18px;
+}
+
+.glyphicon.iconSmallSize{
+    font-size: 10px;
+    top: -5px;
+}

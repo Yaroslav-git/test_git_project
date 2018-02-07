@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html><head>
+
+    <title>Infotell - Личный кабинет</title>
+
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+
+    <link rel="shortcut icon" type="image/x-icon" href="application/image/favicon.ico">
+
+    <link rel="stylesheet" type="text/css" href="application/css/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="application/css/bootstrap/bootstrap-theme.min.css">
+    <link rel="stylesheet" type="text/css" href="application/css/datetimepicker/jquery.datetimepicker.css">
+    <link rel="stylesheet" type="text/css" href="application/css/style.css">
+    <link rel="stylesheet" type="text/css" href="application/css/reportTables.css">
+    <link rel="stylesheet" type="text/css" href="application/css/navbar.css">
+    <link rel="stylesheet" type="text/css" href="application/css/datatables/datatables.min.css">
+
+
+    <script type="text/javascript" src="application/javascript/jquery/jquery.js"></script>
+    <script type="text/javascript" src="application/javascript/jquery/datetimepicker/jquery.datetimepicker.full.min.js"></script>
+    <script type="text/javascript" src="application/javascript/jquery/blockUI/jquery.blockUI.js"></script>
+    <script type="text/javascript" src="application/javascript/bootstrap/bootstrap.min.js"></script>
+    <script type="text/javascript" src="application/javascript/bootstrap/navbar.js"></script>
+    <script type="text/javascript" src="application/javascript/reportFilters/reportFilters.js"></script>
+
+</head>
+<body>
+
+<!-- <div id="Wrapper"> -->
+<!-- <div id="TopMenu"> -->
+<div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <!-- <a class="navbar-brand" href="#">Project name</a> -->
+        </div>
+        <div class="collapse navbar-collapse">
+            <ul class="nav navbar-nav">
+                <li><a title="Главная" href="/">Главная</a></li>
+                <li><a title="Текущие показатели" href="/?resource=CurrentPerformance">Текущие показатели<!-- <span class="glyphicon glyphicon-dashboard"></span>--></a></li>
+                <li><a title="Сводная статистика" href="/?resource=SummaryStatistics">Сводная статистика<!-- <span class="glyphicon glyphicon-stats"></span>--></a></li>
+                <li><a title="Детализация" href="/?resource=DetailReport">Детализация<!-- <span class="glyphicon glyphicon-list-alt"></span>--></a></li>
+                <li class="active"><a title="Настройки проекта" href="/?resource=ProjectSettings">Настройки проекта<!-- <span class="glyphicon glyphicon-wrench"></span>--></a></li>
+                <li><a title="Выйти" href="/?resource=Authentication&amp;action=signOut">Выйти<!-- <span class="glyphicon glyphicon-log-out"></span>--></a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div id="Content">
+    <script type="text/javascript" src="application/javascript/projectSettings/projectSettings.js"></script>
+    <script type="text/javascript" src="application/javascript/jquery/datatables/datatables.min.js"></script>
+
+    <div class="container-fluid">
+
+        <form role="form" method="post">
+            <div class="row">
+
+                <div class="col-sm-6 col-md-4 col-lg-3 col-sm-offset-2 col-md-offset-3 col-lg-offset-4">
+
+                    <div class="input-group input-group-sm projectSelectorFilter">
+                        <span class="input-group-addon">Проект</span>
+                        <select class="form-control" id="projectSelector" name="reportFilters[projectID]">
+                            <option></option>
+                            <option value="corebofs000080000lmhsici10k3ofqc" data-project-type="Naumen_incoming">5158_ЮВЕЛИР_ВТМ (ГЛ вх.)</option>
+                            <option value="corebofs000080000lkdjpk4qttg6ono" data-project-type="Naumen_incoming">5349_ШИНСЕРВИС_ВТМ_Служба приёма заказов (ГЛ вх.)</option>
+                            <option value="corebofs000080000lns8vjijtggqf0c" data-project-type="Naumen_email processing">6176_Ондулин_ВТМ_E-mail (email processing)</option>
+                            <option value="6436" data-project-type="Infra_natural">9413_Эксперт Плюс_ИТМ_Поиск клиентов (ИТМ физ.)</option>
+                            <option value="6472" data-project-type="Infra_legal" selected="">9703_Прогресс-Центр_ИТМ_Поиск клиентов (ИТМ юр.)</option>
+                            <option value="6362" data-project-type="Infra_natural">Банк СПБ (ИТМ физ.)</option>
+                            <option value="corebofs000080000lc0iql0l8el4ar0" data-project-type="Naumen_outcoming">Перекресток. Исходящие звонки (ГЛ исх.)</option>
+                            <option value="corebofs000080000lecgonrr08mog0g" data-project-type="Naumen_incoming">Секретарь_Новый (ГЛ вх.)</option>
+                        </select>
+                    </div>
+                    <input type="text" id="selectedProjectType" class="sr-only" name="reportFilters[projectType]" value="Infra_legal">
+                </div>
+
+                <div class="col-sm-3 col-md-3 col-lg-1">
+
+                    <button class="btn btn-success btn-sm" type="submit" id="refreshReportBtn" name="userRequest" value="refresh report">
+                        <span class="glyphicon glyphicon-refresh"></span> Обновить
+                    </button>
+
+                </div>
+            </div>
+        </form>
+    </div>
+
+
+    <div class="container projectPropertiesList">
+
+        <div class="row">
+            <div class="col-sm-12 col-md-10 col-lg-8  col-sm-offset-0 col-md-offset-1 col-lg-offset-2 projectPropertiesHeader">
+                <h3><span class="label label-infotell">Свойства проекта</span></h3>
+            </div>
+        </div>
+<!--
+        <div class="row">
+            <div class="col-sm-12 col-md-10 col-lg-8  col-sm-offset-0 col-md-offset-1 col-lg-offset-2">
+                <div class="input-group">
+                    <span class="input-group-addon projectPropertyLabel">Номер окна</span>
+                    <input type="text" class="form-control projectPropertyValue" id="InfraProjectId" value="6362" disabled>
+                    <span class="input-group-addon saveButtonContainer" >
+                        <span class="glyphicon glyphicon-info-sign iconMiddleSize"></span>
+                    </span>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-12 col-md-10 col-lg-8  col-sm-offset-0 col-md-offset-1 col-lg-offset-2">
+                <div class="input-group">
+                    <span class="input-group-addon projectPropertyLabel">Тип проекта</span>
+                    <input type="text" class="form-control projectPropertyValue" id="InfraProjectType" value="Физические лица" disabled>
+                    <span class="input-group-addon saveButtonContainer">
+                        <span class="glyphicon glyphicon-info-sign iconMiddleSize"></span>
+                    </span>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-12 col-md-10 col-lg-8  col-sm-offset-0 col-md-offset-1 col-lg-offset-2">
+                <div class="input-group">
+                    <span class="input-group-addon projectPropertyLabel">Название проекта</span>
+                    <input type="text" class="form-control projectPropertyValue" id="InfraProjectName" value="Банк СПБ" disabled>
+                    <span class="input-group-addon saveButtonContainer">
+                        <span class="glyphicon glyphicon-info-sign iconMiddleSize"></span>
+                    </span>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-12 col-md-10 col-lg-8  col-sm-offset-0 col-md-offset-1 col-lg-offset-2">
+                <div class="input-group">
+                    <span class="input-group-addon projectPropertyLabel">Название очереди</span>
+                    <input type="text" class="form-control projectPropertyValue" id="InfraProjectQueueName" value="Bank_SPB_PHIS" disabled>
+                    <span class="input-group-addon saveButtonContainer">
+                        <span class="glyphicon glyphicon-info-sign iconMiddleSize"></span>
+                    </span>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-12 col-md-10 col-lg-8  col-sm-offset-0 col-md-offset-1 col-lg-offset-2">
+                <div class="input-group">
+                    <span class="input-group-addon projectPropertyLabel">Начало расчета показателей</span>
+                    <input type="datetime" class="form-control projectPropertyValue datepicker" id="InfraProjectStatisticStartTime" value="2016-01-01" >
+                    <span class="input-group-btn saveButtonContainer">
+                        <button class="btn btn-primary" data-button-property = "statisticStartTime" type="button"><span class="glyphicon glyphicon-floppy-disk"></span> Сохранить</button>
+                    </span>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-12 col-md-10 col-lg-8  col-sm-offset-0 col-md-offset-1 col-lg-offset-2">
+                <div class="input-group">
+                    <span class="input-group-addon projectPropertyLabel">Приобретённый пакет минут</span>
+                    <input type="text" class="form-control projectPropertyValue int" id="InfraProjectMinutesPackage" value="10000" >
+                    <span class="input-group-btn saveButtonContainer">
+                        <button class="btn btn-success" data-button-property = "minutesPackage" type="button"><span class="glyphicon glyphicon-floppy-saved"></span> Сохранено</button>
+                    </span>
+                </div>
+            </div>
+        </div>
+-->
+        <div class="row">
+            <div class="col-sm-12 col-md-10 col-lg-8  col-sm-offset-0 col-md-offset-1 col-lg-offset-2">
+                <div class="input-group">
+                    <span class="input-group-addon projectPropertyLabel">Номер окна</span>
+                    <input type="text" class="form-control projectPropertyValue" id="NaumenProjectId" value="corebofs000080000lecgonrr08mog0g" disabled>
+                    <span class="input-group-addon saveButtonContainer" >
+                        <span class="glyphicon glyphicon-info-sign iconMiddleSize"></span>
+                    </span>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-12 col-md-10 col-lg-8  col-sm-offset-0 col-md-offset-1 col-lg-offset-2">
+                <div class="input-group">
+                    <span class="input-group-addon projectPropertyLabel">Тип проекта</span>
+                    <input type="text" class="form-control projectPropertyValue" id="NaumenProjectType" value="Горячая Линия входящий" disabled>
+                    <span class="input-group-addon saveButtonContainer">
+                        <span class="glyphicon glyphicon-info-sign iconMiddleSize"></span>
+                    </span>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-12 col-md-10 col-lg-8  col-sm-offset-0 col-md-offset-1 col-lg-offset-2">
+                <div class="input-group">
+                    <span class="input-group-addon projectPropertyLabel">Название партнёра</span>
+                    <input type="text" class="form-control projectPropertyValue" id="NaumenPartnerName" value="Секретарь Инфотелл" disabled>
+                    <span class="input-group-addon saveButtonContainer">
+                        <span class="glyphicon glyphicon-info-sign iconMiddleSize"></span>
+                    </span>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-12 col-md-10 col-lg-8  col-sm-offset-0 col-md-offset-1 col-lg-offset-2">
+                <div class="input-group">
+                    <span class="input-group-addon projectPropertyLabel">Название проекта</span>
+                    <input type="text" class="form-control projectPropertyValue" id="NaumenProjectName" value="Секретарь_Новый" disabled>
+                    <span class="input-group-addon saveButtonContainer">
+                        <span class="glyphicon glyphicon-info-sign iconMiddleSize"></span>
+                    </span>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-12 col-md-10 col-lg-8  col-sm-offset-0 col-md-offset-1 col-lg-offset-2">
+                <div class="input-group">
+                    <span class="input-group-addon projectPropertyLabel">Состояние проекта</span>
+                    <input type="text" class="form-control projectPropertyValue" id="NaumenProjectState" value="Активный" disabled>
+                    <span class="input-group-addon saveButtonContainer">
+                        <span class="glyphicon glyphicon-info-sign iconMiddleSize"></span>
+                    </span>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-12 col-md-10 col-lg-8  col-sm-offset-0 col-md-offset-1 col-lg-offset-2">
+                <div class="input-group">
+                    <span class="input-group-addon projectPropertyLabel" data-toggle="tooltip" data-original-title="Целевое время ответа оператора (сек.)">
+                        Целевое время <span class="glyphicon glyphicon-asterisk iconSmallSize"></span>
+                    </span>
+                    <input type="datetime" class="form-control projectPropertyValue" id="NaumenProjectTargetServiceTime" value="20" >
+                    <span class="input-group-btn saveButtonContainer">
+                        <button class="btn btn-primary savePropertyButton" data-button-property = "targetServiceTime" type="button"><span class="glyphicon glyphicon-floppy-disk"></span> Сохранить</button>
+                    </span>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-12 col-md-10 col-lg-8  col-sm-offset-0 col-md-offset-1 col-lg-offset-2">
+                <div class="input-group">
+                    <span class="input-group-addon projectPropertyLabel" data-toggle="tooltip" data-original-title="Максимальная длительность короткого вызова (сек.)" >
+                        Короткие пропущенные <span class="glyphicon glyphicon-asterisk iconSmallSize"></span>
+                    </span>
+                    <input type="datetime" class="form-control projectPropertyValue" id="NaumenProjectAcceptableLostTime" value="7" >
+                    <span class="input-group-btn saveButtonContainer">
+                        <button class="btn btn-primary savePropertyButton" data-button-property = "acceptableLostTime" type="button"><span class="glyphicon glyphicon-floppy-disk"></span> Сохранить</button>
+                    </span>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-12 col-md-10 col-lg-8  col-sm-offset-0 col-md-offset-1 col-lg-offset-2">
+                <div class="input-group has-error">
+                    <span class="input-group-addon projectPropertyLabel" data-toggle="tooltip" title="Отображаемая в детализации постобработка (сек.)">
+                        Постобработка <span class="glyphicon glyphicon-asterisk iconSmallSize"></span>
+                    </span>
+                    <input type="text" class="form-control projectPropertyValue" id="NaumenProjectDisplayedWrapup" value="15">
+                    <span class="input-group-btn saveButtonContainer">
+                        <button class="btn btn-primary savePropertyButton" data-button-property = "displayedWrapup" type="button" id="testId"><span class="glyphicon glyphicon-floppy-disk"></span><span> Сохранить</button>
+                    </span>
+                </div>
+            </div>
+        </div>
+
+        <div class="row"> </div>
+
+        <div class="row">
+            <div class="col-sm-12 col-md-10 col-lg-8  col-sm-offset-0 col-md-offset-1 col-lg-offset-2">
+                <div class="alert alert-warning">Eshe ne Pisdec!</div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-12 col-md-10 col-lg-8  col-sm-offset-0 col-md-offset-1 col-lg-offset-2">
+                <div class="alert alert-danger">Pisdec!</div>
+            </div>
+        </div>
+
+
+    </div> <!--container-->
+
+    <!-- <textarea id="log"></textarea> -->
+
+</div>
+
+<div id="Footer" class="footer">
+    <div class="container-fluid">
+        <p class="text-footer">© Infotell.ru</p>
+    </div>
+</div>
+
+</body></html>
