@@ -1,0 +1,147 @@
+﻿<!DOCTYPE html>
+<html><head>
+
+    <title>Infotell - Личный кабинет</title>
+
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+
+    <link rel="shortcut icon" type="image/x-icon" href="application/image/favicon.ico">
+
+    <link rel="stylesheet" type="text/css" href="application/css/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="application/css/bootstrap/bootstrap-theme.min.css">
+    <link rel="stylesheet" type="text/css" href="application/css/style.css">
+    <link rel="stylesheet" type="text/css" href="application/css/reportTables.css">
+    <link rel="stylesheet" type="text/css" href="application/css/navbar.css">
+    <link rel="stylesheet" type="text/css" href="application/css/datetimepicker/jquery.datetimepicker.css">
+
+
+    <script type="text/javascript" src="application/javascript/jquery/jquery.js"></script>
+    <script type="text/javascript" src="application/javascript/jquery/blockUI/jquery.blockUI.js"></script>
+    <script type="text/javascript" src="application/javascript/jquery/datetimepicker/jquery.datetimepicker.full.min.js"></script>
+    <script type="text/javascript" src="application/javascript/bootstrap/bootstrap.min.js"></script>
+    <script type="text/javascript" src="application/javascript/bootstrap/navbar.js"></script>
+    <script type="text/javascript" src="application/javascript/reportFilters/reportFilters.js"></script>
+
+</head>
+<body>
+
+<!-- <div id="Wrapper"> -->
+<!-- <div id="TopMenu"> -->
+<div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <!-- <a class="navbar-brand" href="#">Project name</a> -->
+        </div>
+        <div class="collapse navbar-collapse">
+            <ul class="nav navbar-nav">
+                <li><a title="Главная" href="/">Главная</a></li>
+                <li><a title="Текущие показатели" href="/?resource=CurrentPerformance">Текущие показатели</a></li>
+                <li><a title="Сводная статистика" href="/?resource=SummaryStatistics">Сводная статистика</a></li>
+                <li><a title="Детализация" href="/?resource=DetailReport">Детализация</a></li>
+                <li><a title="Настройки проекта" href="/?resource=ProjectSettings">Настройки проекта</a></li>
+                <li class="active"><a title="Обратная связь" href="/?resource=FeedBack">Обратная связь</a></li>
+                <li><a title="Выйти" href="/?resource=Authentication&amp;action=signOut">Выйти</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div id="Content">
+    <script type="text/javascript" src="application/javascript/feedBack/feedBack.js"></script>
+    <script type="text/javascript" src="application/javascript/jquery/mask/jquery.mask.min.js"></script>
+
+
+    <div class="container feedBackForm">
+
+        <div class="row">
+            <div class="col-sm-12 col-md-10 col-lg-8  col-sm-offset-0 col-md-offset-1 col-lg-offset-2">
+                <div class="input-group input-group-sm">
+                    <span class="input-group-addon">Категория обращения</span>
+                    <select class="form-control appealCategory">
+                        <option></option>
+                        <option value="general_director_appeal">Прямое обращение к генеральному директору</option>
+                        <option value="OUP_head_appeal">Прямое обращение к руководителю ОУП</option>
+                        <option value="offers_wishes">Предложения / Пожелания</option>
+                        <option value="gratitude">Благодарность</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-12 col-md-10 col-lg-8  col-sm-offset-0 col-md-offset-1 col-lg-offset-2">
+
+                <div class="panel panel-primary appealTextPanel">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Текст обращения</h3>
+                    </div>
+                    <div class="panel-body">
+                        <textarea class="form-control verticalResize appealTextContent" rows="20"></textarea>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="row">
+
+            <div class="col-sm-12 col-md-10 col-lg-8  col-sm-offset-0 col-md-offset-1 col-lg-offset-2">
+
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Контактные данные</h3>
+                    </div>
+                    <div class="panel-body contactData">
+
+                        <div class="input-group input-group-sm">
+                            <span class="input-group-addon contactDataFieldLabel"><span class="glyphicon glyphicon-user"></span> Имя</span>
+                            <input type="text" class="form-control name" id="appealPersonName"></input>
+                        </div>
+
+                        <div class="input-group input-group-sm">
+                            <span class="input-group-addon contactDataFieldLabel"><span class="glyphicon glyphicon-envelope"></span> E-Mail</span>
+                            <input type="text" class="form-control email" id="appealContactMail" ></input>
+                        </div>
+
+                        <div class="input-group input-group-sm">
+                            <span class="input-group-addon contactDataFieldLabel"><span class="glyphicon glyphicon-phone"></span> Телефон</span>
+                            <input type="text" class="form-control phone" id="appealContactPhone"></input>
+                        </div>
+
+                        <div class="input-group input-group-sm">
+                            <span class="input-group-addon contactDataFieldLabel"><span class="glyphicon glyphicon-comment"></span> Другое</span>
+                            <input type="text" class="form-control other" id="appealContactOther"></input>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="row">
+            <div class="col-sm-6 col-md-3 col-lg-2  col-sm-offset-6 col-md-offset-7 col-lg-offset-8 sendButtonContainer">
+                <button class="btn btn-primary" id="sendAppealBtn">
+                    <span class="glyphicon glyphicon-send"></span> Отправить
+                </button>
+            </div>
+        </div>
+
+    </div> <!--container-->
+
+
+</div>
+
+<div id="Footer" class="footer">
+    <div class="container-fluid">
+        <p class="text-footer">© Infotell.ru</p>
+    </div>
+</div>
+
+</body></html>

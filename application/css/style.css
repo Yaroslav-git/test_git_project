@@ -13,7 +13,7 @@
     /*height: 45vh;*/
     overflow-x: scroll;
     overflow-y: hidden;
- }
+}
 
 .chartContainer-dbl{
     /*height: 75vh;*/
@@ -79,6 +79,12 @@ span.SummaryTypeLabel{
     padding-right: 2px;
 }
 
+span.contactDataFieldLabel{
+    max-width: 100px;
+    min-width: 100px;
+    text-align: left;
+}
+
 .label-infotell{
     background-color: #8ec266;
 }
@@ -111,6 +117,10 @@ span.SummaryTypeLabel{
 .notificationMessage{
     margin-top: 30vh;
 }
+.projectPropertiesList .notificationMessage{
+    margin-top: 5vh;
+}
+
 .notificationMessage div.alert{
     text-align: center;
 }
@@ -189,6 +199,10 @@ span.projectPropertyLabel{
     min-width: 115px;
 }
 
+.sendButtonContainer{
+    text-align: right;
+}
+
 .input-group-addon.saveButtonContainer {
     background-color: #ccc;
 }
@@ -209,4 +223,29 @@ span.projectPropertyLabel{
 .glyphicon.iconSmallSize{
     font-size: 10px;
     top: -5px;
+}
+
+textarea.verticalResize{
+    resize: vertical;
+}
+
+.contactData .input-group{
+    margin-top: 5px;
+}
+
+.contactData .input-group:first-child {
+    margin-top: 0px;
+}
+
+.appealTextPanel,
+.feedBackForm{
+    margin-top: 10px;
+}
+
+.feedBackForm .panel-body {
+    padding: 5px;
+}
+
+.panel-body.contactData{
+    padding: 5px 5%;
 }
