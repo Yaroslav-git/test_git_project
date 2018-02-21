@@ -121,6 +121,10 @@ span.contactDataFieldLabel{
     margin-top: 5vh;
 }
 
+.feedBackForm .notificationMessage{
+    margin-top: 0px;
+}
+
 .notificationMessage div.alert{
     text-align: center;
 }
@@ -225,6 +229,7 @@ span.projectPropertyLabel{
     top: -5px;
 }
 
+
 textarea.verticalResize{
     resize: vertical;
 }
@@ -237,7 +242,7 @@ textarea.verticalResize{
     margin-top: 0px;
 }
 
-.appealTextPanel,
+.panel.appealText,
 .feedBackForm{
     margin-top: 10px;
 }
